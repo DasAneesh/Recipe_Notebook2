@@ -7,7 +7,9 @@
     @forelse ($recipes as $recipe)
         <div class="card mb-3">
             <div class="card-body">
-                <h5 class="card-title">{{ $recipe->name }}</h5>
+                <h5 class="card-title">
+                <a href="{{ route('recipes.show', $recipe) }}">{{ $recipe->name }}</a>
+                </h5>    
                 <p class="card-text"><strong>Ingredients:</strong> {{ $recipe->ingredients }}</p>
                 <p class="card-text"><strong>Steps:</strong> {{ $recipe->steps }}</p>
                 <form action="{{ route('recipes.destroy', $recipe->id) }}" method="POST">
